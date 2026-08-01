@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کافی‌نت آنلاین سولدوز | خدمات کامپیوتری و اینترنتی</title>
+<meta name="description" content="خدمات تخصصی اینترنتی، اداری، آفیس و نرم‌افزاری — کافی‌نت آنلاین سولدوز">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#040810;
+    --glass:rgba(255,255,255,0.045);
+    --glass-2:rgba(255,255,255,0.08);
+    --glass-brd:rgba(255,255,255,0.09);
+    --ink-0:#f7f4ec;
+    --ink-1:#c7d3dc;
+    --ink-2:#7c8c9a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Vazirmatn', sans-serif;
+    background:var(--bg-0);
+    color:var(--ink-0);
+    line-height:1.85;
+    min-height:100vh;
+    overflow-x:hidden;
+    padding-bottom:104px;
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .display{font-family:'Vazirmatn', sans-serif; font-weight:900; letter-spacing:-.02em;}
+  .grad{background:linear-gradient(100deg,#a78bfa,#22d3ee 45%,#f0b94a 80%); -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  /* ---------- AMBIENT BACKGROUND ---------- */
+  .aurora{position:fixed; inset:0; z-index:-1; overflow:hidden;}
+  .aurora span{position:absolute; border-radius:50%; filter:blur(100px); opacity:.30;}
+  .aurora span:nth-child(1){width:440px; height:440px; background:#8b5cf6; top:-150px; right:-130px; animation:drift1 22s ease-in-out infinite;}
+  .aurora span:nth-child(2){width:400px; height:400px; background:#f59e0b; bottom:-110px; left:-150px; animation:drift2 26s ease-in-out infinite;}
+  .aurora span:nth-child(3){width:300px; height:300px; background:#22d3ee; top:40%; left:50%; animation:drift3 30s ease-in-out infinite;}
+  @keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,50px)}}
+  @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,-30px)}}
+  @keyframes drift3{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,40px)}}
+  .grain{position:fixed; inset:0; z-index:-1; opacity:.035; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  .wrap{max-width:640px; margin:0 auto; padding:0 20px;}
+
+  /* ---------- STATUS ---------- */
+  .status{display:flex; align-items:center; justify-content:center; gap:8px; padding:16px 0 0; font-size:11px; color:var(--ink-2); letter-spacing:.08em;}
+  .status .dot{width:6px; height:6px; border-radius:50%; background:#33d6c6; box-shadow:0 0 10px 2px rgba(51,214,198,.7); animation:pulse 1.8s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; padding:30px 10px 26px; text-align:center;}
+  .signal{position:relative; width:150px; height:150px; margin:22px auto 22px;}
+  .signal .ring{position:absolute; inset:0; border-radius:50%; border:1px solid rgba(255,255,255,.18); animation:ripple 3.6s ease-out infinite;}
+  .signal .ring:nth-child(2){animation-delay:1.2s;}
+  .signal .ring:nth-child(3){animation-delay:2.4s;}
+  @keyframes ripple{0%{transform:scale(.55); opacity:0;} 18%{opacity:.9;} 100%{transform:scale(1.35); opacity:0;}}
+  .signal .core{position:absolute; inset:24px; border-radius:50%; background:conic-gradient(from 210deg, #8b5cf6, #22d3ee, #f59e0b, #ec4899, #8b5cf6); padding:3px; box-shadow:0 0 55px -8px rgba(139,92,246,.55);}
+  .signal .core-in{width:100%; height:100%; border-radius:50%; background:#070c14; display:flex; align-items:center; justify-content:center;}
+  .signal .core-in svg{width:44px; height:44px;}
+
+  h1{font-size:34px;}
+  h1 .en{display:block; font-family:'JetBrains Mono', monospace; font-size:12.5px; font-weight:500; letter-spacing:.34em; color:#f0b94a; margin-top:12px; text-transform:uppercase;}
+  .tagline{margin:16px auto 0; max-width:400px; color:var(--ink-1); font-size:15px;}
+
+  .chips{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:22px;}
+  .chip{font-size:12px; padding:8px 14px; border-radius:999px; background:var(--glass); border:1px solid var(--glass-brd); color:var(--ink-1); display:flex; align-items:center; gap:6px;}
+  .chip b{color:#f0b94a; font-weight:700;}
+
+  .notice{margin-top:28px; padding:14px 16px; border-radius:14px; background:rgba(240,185,74,0.07); border:1px solid rgba(240,185,74,0.25); color:var(--ink-1); font-size:12.5px; display:flex; gap:10px; align-items:flex-start;}
+  .notice svg{width:16px; height:16px; flex-shrink:0; margin-top:2px; stroke:#f0b94a;}
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{padding:40px 0 6px;}
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:15px; gap:12px;}
+  .section-head .num{font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--ink-2); letter-spacing:.1em; display:flex; align-items:center; gap:8px;}
+  .section-head .num .count{padding:2px 8px; border-radius:999px; background:var(--glass-2); color:var(--ink-1); font-size:10.5px;}
+  .section-head h2{font-size:24px; margin-top:4px;}
+  .section-head small{display:block; font-size:12.5px; font-weight:400; color:var(--ink-2); margin-top:3px; font-family:'Vazirmatn';}
+  .section-head .glyph{width:48px; height:48px; flex-shrink:0; border-radius:15px; display:flex; align-items:center; justify-content:center; padding:2px;}
+  .section-head .glyph-in{width:100%; height:100%; border-radius:13px; background:#080d16; display:flex; align-items:center; justify-content:center;}
+  .section-head .glyph-in svg{width:21px; height:21px;}
+
+  /* ---------- ACCORDION ITEM ---------- */
+  .stack{display:flex; flex-direction:column; gap:18px;}
+  details.item{
+    --a:#33d6c6; --b:#f0b94a;
+    position:relative;
+    border-radius:20px;
+    border:1.5px solid transparent;
+    background:
+      linear-gradient(165deg, rgba(20,26,38,0.92), rgba(15,20,30,0.92)) padding-box,
+      linear-gradient(135deg, var(--a), var(--b)) border-box;
+    backdrop-filter:blur(14px);
+    overflow:hidden;
+    box-shadow:0 14px 34px -22px color-mix(in srgb, var(--a) 65%, transparent);
+    transition:box-shadow .2s ease, border-width .2s ease;
+  }
+  details.item[open]{border-width:2px; box-shadow:0 18px 40px -18px color-mix(in srgb, var(--a) 60%, transparent);}
+  details.item summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; gap:13px;
+    padding:16px 16px 16px 14px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  details.item summary::-webkit-details-marker{display:none;}
+  details.item summary .ic{
+    width:44px; height:44px; flex-shrink:0; border-radius:14px;
+    background:linear-gradient(135deg, var(--a), var(--b), var(--a));
+    background-size:220% 220%;
+    display:flex; align-items:center; justify-content:center;
+    animation:icGlow 4.5s ease-in-out infinite;
+  }
+  @keyframes icGlow{
+    0%{background-position:0% 50%; box-shadow:0 8px 18px -6px color-mix(in srgb, var(--a) 80%, transparent);}
+    50%{background-position:100% 50%; box-shadow:0 10px 26px -4px color-mix(in srgb, var(--b) 85%, transparent);}
+    100%{background-position:0% 50%; box-shadow:0 8px 18px -6px color-mix(in srgb, var(--a) 80%, transparent);}
+  }
+  details.item summary .ic svg{width:19px; height:19px; stroke:#070c14; stroke-width:2.1;}
+  details.item summary .tt{flex:1; font-size:14.5px; font-weight:700; color:var(--ink-0);}
+  details.item summary .tt small{display:block; font-weight:400; font-size:12px; color:var(--ink-2); margin-top:2px;}
+  details.item summary .chev{
+    width:26px; height:26px; flex-shrink:0; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--a), var(--b));
+    color:#070c14; border:none;
+    animation:chevPulse 2.6s ease-in-out infinite;
+    transition:transform .25s ease;
+  }
+  @keyframes chevPulse{0%,100%{opacity:.8; transform:scale(1);} 50%{opacity:1; transform:scale(1.08);}}
+  details.item[open] summary .chev{transform:rotate(45deg); animation:none; opacity:1;}
+
+  .item-body{padding:0 16px 18px 16px; border-top:1px solid rgba(255,255,255,0.06); margin-top:2px; padding-top:14px;}
+  .item-body .label{font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--a); margin-bottom:10px;}
+  ul.docs{list-style:none; margin-bottom:16px;}
+  ul.docs li{display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:var(--ink-1); padding:6px 0;}
+  ul.docs li::before{content:""; flex-shrink:0; width:5px; height:5px; margin-top:8px; border-radius:50%; background:var(--b);}
+  .req-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:13px;
+    border-radius:13px;
+    background:linear-gradient(135deg, var(--a), var(--b));
+    color:#070c14;
+    font-size:13.5px; font-weight:700;
+    text-decoration:none;
+    border:none; cursor:pointer; font-family:'Vazirmatn', sans-serif;
+    box-shadow:0 12px 26px -10px color-mix(in srgb, var(--a) 65%, transparent);
+    transition:transform .15s ease;
+  }
+  .req-btn:active{transform:scale(.97);}
+  .req-btn svg{width:15px; height:15px;}
+  .req-hint{text-align:center; font-size:11px; color:var(--ink-2); margin-top:8px;}
+
+  /* ---------- REQUEST MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:200; background:rgba(2,5,10,.78);
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    display:none; align-items:flex-end; justify-content:center;
+    padding:0;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    width:100%; max-width:640px; max-height:92vh; overflow-y:auto;
+    background:#0a1018; border:1px solid var(--glass-brd);
+    border-radius:22px 22px 0 0;
+    padding:22px 20px 28px;
+    animation:modalUp .28s ease;
+  }
+  @keyframes modalUp{from{transform:translateY(24px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+  .modal-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:4px;}
+  .modal-head h3{font-size:16px; font-weight:800; color:var(--ink-0); line-height:1.5;}
+  .modal-close{
+    flex-shrink:0; width:30px; height:30px; border-radius:50%;
+    background:var(--glass); border:1px solid var(--glass-brd);
+    color:var(--ink-1); font-size:16px; display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .modal-sub{font-size:12px; color:var(--ink-2); margin-bottom:18px;}
+  .m-field{margin-bottom:14px;}
+  .m-field label{display:block; font-size:12px; color:var(--ink-1); margin-bottom:6px; font-weight:600;}
+  .m-field input[type=text], .m-field input[type=tel]{
+    width:100%; padding:12px 14px; border-radius:12px;
+    background:rgba(255,255,255,.045); border:1px solid var(--glass-brd);
+    color:var(--ink-0); font-family:'Vazirmatn',sans-serif; font-size:14px;
+  }
+  .m-field input:focus{outline:none; border-color:#a78bfa;}
+  .m-upload{
+    display:flex; align-items:center; gap:10px;
+    width:100%; padding:13px 14px; border-radius:12px;
+    background:rgba(255,255,255,.045); border:1px dashed var(--glass-brd);
+    color:var(--ink-1); font-size:13px; cursor:pointer;
+  }
+  .m-upload input{display:none;}
+  .m-upload svg{width:17px; height:17px; flex-shrink:0; color:#a78bfa;}
+  .m-file-list{font-size:11.5px; color:#33d6c6; margin-top:6px; word-break:break-word;}
+  .card-box{
+    background:linear-gradient(135deg, rgba(167,139,250,.14), rgba(34,211,238,.10));
+    border:1px solid rgba(255,255,255,.12); border-radius:14px;
+    padding:14px 16px; margin-bottom:16px; text-align:center;
+  }
+  .card-box .cb-label{font-size:11px; color:var(--ink-2); margin-bottom:6px;}
+  .card-box .cb-num{font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:700; letter-spacing:.03em; color:var(--ink-0); direction:ltr;}
+  .card-box .cb-name{font-size:12.5px; color:var(--ink-1); margin-top:4px;}
+  .card-box .cb-copy{
+    margin-top:9px; display:inline-block; font-size:11px; color:#22d3ee;
+    background:rgba(34,211,238,.12); border:1px solid rgba(34,211,238,.3);
+    padding:5px 12px; border-radius:20px; cursor:pointer;
+  }
+  .cb-note{font-size:11.5px; color:#f0b94a; line-height:1.8; margin-bottom:10px; text-align:right;}
+  .cb-admin-link{
+    display:block; text-align:center; font-size:12.5px; font-weight:700;
+    color:#070c14; background:linear-gradient(135deg,#f0b94a,#f59e0b);
+    padding:9px; border-radius:11px; text-decoration:none; margin-bottom:12px;
+  }
+  .cb-divider{height:1px; background:rgba(255,255,255,.1); margin-bottom:12px;}
+  .m-submit{
+    width:100%; padding:14px; border:none; border-radius:13px; margin-top:6px;
+    background:linear-gradient(135deg,#a78bfa,#22d3ee); color:#070c14;
+    font-family:'Vazirmatn',sans-serif; font-size:14.5px; font-weight:800; cursor:pointer;
+  }
+  .m-submit:disabled{opacity:.55;}
+  .m-status{text-align:center; font-size:12.5px; margin-top:12px; min-height:16px;}
+  .m-status.ok{color:#33d6c6;}
+  .m-status.err{color:#f87171;}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{margin-top:38px; display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
+  .trust .t{text-align:center; padding:16px 6px; border-radius:16px; background:var(--glass); border:1px solid var(--glass-brd);}
+  .trust svg{width:20px; height:20px; margin-bottom:8px;}
+  .trust span{display:block; font-size:11px; color:var(--ink-1);}
+  .trust .t:nth-child(1) svg{stroke:#fbbf24;}
+  .trust .t:nth-child(2) svg{stroke:#34d399;}
+  .trust .t:nth-child(3) svg{stroke:#38bdf8;}
+  .trust .t:nth-child(4) svg{stroke:#f472b6;}
+
+  /* ---------- ADDRESS ---------- */
+  .address-block{
+    position:relative;
+    margin-top:44px; padding:32px 24px 26px;
+    border-radius:26px;
+    background:linear-gradient(165deg, rgba(139,92,246,0.10), rgba(34,211,238,0.05) 55%, rgba(240,185,74,0.06));
+    border:1px solid var(--glass-brd);
+    text-align:center;
+    overflow:hidden;
+    backdrop-filter:blur(14px);
+  }
+  .address-block::before{content:""; position:absolute; inset:0 0 auto 0; height:3px; background:linear-gradient(90deg,#8b5cf6,#22d3ee,#f0b94a,#ec4899);}
+  .address-block::after{content:""; position:absolute; width:220px; height:220px; background:radial-gradient(circle, rgba(139,92,246,.25), transparent 70%); top:-90px; left:-70px; pointer-events:none;}
+  .address-block .pin{position:relative; width:64px; height:64px; margin:0 auto 16px; border-radius:50%;
+    background:conic-gradient(from 210deg, #8b5cf6, #22d3ee, #f0b94a, #ec4899, #8b5cf6); padding:3px;
+    box-shadow:0 0 40px -8px rgba(139,92,246,.55); animation:spin 8s linear infinite;}
+  .address-block .pin-in{width:100%; height:100%; border-radius:50%; background:#080d16; display:flex; align-items:center; justify-content:center;}
+  .address-block .pin-in svg{width:26px; height:26px; stroke:#f0b94a;}
+  @keyframes spin{from{transform:rotate(0deg)} to{transform:rotate(360deg)}}
+  .address-block .kicker{font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.2em; color:#22d3ee; text-transform:uppercase; margin-bottom:10px;}
+  .address-block h3{font-size:18px; font-weight:800; color:var(--ink-0); margin-bottom:10px;}
+  .address-block p{font-size:14px; color:var(--ink-1); max-width:360px; margin-inline:auto;}
+  .address-block p b{color:var(--ink-0);}
+  .address-block p + p{margin-top:8px;}
+  .map-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:20px; padding:12px 22px;
+    border-radius:999px;
+    background:var(--glass-2);
+    border:1px solid rgba(240,185,74,.35);
+    color:#f0b94a; font-size:13px; font-weight:700;
+    text-decoration:none;
+  }
+  .map-btn svg{width:15px; height:15px;}
+
+  footer{position:relative; text-align:center; margin-top:40px; padding-top:30px; color:var(--ink-2); font-size:12px;}
+  footer::before{content:""; position:absolute; top:0; left:50%; transform:translateX(-50%); width:90px; height:2px; border-radius:2px; background:linear-gradient(90deg,#8b5cf6,#22d3ee,#f0b94a);}
+  footer .brand{font-weight:900; font-size:20px; color:var(--ink-0); letter-spacing:-.01em;}
+  footer .channel{display:inline-block; margin-top:10px; padding:7px 16px; border-radius:999px; background:var(--glass-2); color:#f0b94a; font-weight:700; font-size:13px; font-family:'JetBrains Mono', monospace; letter-spacing:.02em;}
+
+  /* ---------- CTA BAR ---------- */
+  .cta-bar{position:fixed; bottom:0; left:0; right:0; z-index:20; display:flex; gap:10px; padding:14px 16px calc(14px + env(safe-area-inset-bottom)); background:rgba(4,8,16,.72); backdrop-filter:blur(18px); border-top:1px solid var(--glass-brd);}
+  .cta{display:flex; align-items:center; justify-content:center; gap:8px; flex:1; padding:13px 10px; border-radius:14px; font-size:14px; font-weight:700; text-decoration:none; transition:transform .15s ease;}
+  .cta:active{transform:scale(.96);}
+  .cta svg{width:16px; height:16px;}
+  .cta.call{background:linear-gradient(135deg, #22d3ee, #3b82f6); color:#04141f;}
+  .cta.msg{background:transparent; color:#f0b94a; border:1.5px solid rgba(240,185,74,.45);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .signal .ring, .status .dot, .aurora span, details.item summary .ic, details.item summary .chev, .address-block .pin{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="aurora"><span></span><span></span><span></span></div>
+<div class="grain"></div>
+
+<div class="wrap">
+
+  <div class="status"><span class="dot"></span> آنلاین و آماده پاسخگویی</div>
+
+  <section class="hero">
+    <h1 class="display grad">کافی‌نت آنلاین سولدوز<span class="en">solduz online</span></h1>
+    <div class="signal">
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+      <div class="core"><div class="core-in">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#e8ebef" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 9h2M11 9h6"/></svg>
+      </div></div>
+    </div>
+    <p class="tagline">روی هر خدمت بزن، مدارک لازمش رو ببین و همون‌جا درخواستت رو ثبت کن — بدون نیاز به حضورتون.</p>
+    <div class="chips">
+      <div class="chip"><b>۸</b>&nbsp;دسته خدمت</div>
+      <div class="chip">غیرحضوری ۱۰۰٪</div>
+      <div class="chip">پاسخگویی سریع</div>
+    </div>
+    <div class="notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      مدارک ذکرشده برای هر خدمت، حالت عمومی و رایج است و ممکن است بسته به مورد شما کمی متفاوت باشد. برای اطمینان کامل قبل از مراجعه با ما تماس بگیرید.
+    </div>
+  </section>
+
+  <!-- helper macro-like structure repeated manually for each item -->
+
+  <!-- 01 : LOANS -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۱ / خدمات <span class="count">۵ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#a78bfa,#f472b6); -webkit-background-clip:text; background-clip:text; color:transparent;">وام و تسهیلات</h2>
+        <small>ثبت‌نام و استعلام وضعیت وام‌ها</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#8b5cf6; --b:#ec4899;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5 5 0 0 0-7.1 0L12 6.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 20.3l8.8-8.6a5 5 0 0 0 0-7.1z"/></svg></div>
+          <div class="tt">وام ازدواج<small>ثبت‌نام تسهیلات قرض‌الحسنه ازدواج</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>عقدنامه رسمی (اصل و کپی)</li>
+            <li>شناسنامه و کارت ملی هر دو زوج</li>
+            <li>کد پستی معتبر محل سکونت</li>
+            <li>مدارک هویتی و شغلی ضامن معتبر</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام وام ازدواج</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#d946ef; --b:#ec4899;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div>
+          <div class="tt">استعلام وام ازدواج<small>پیگیری وضعیت ثبت‌نام قبلی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کد ملی متقاضی</li>
+            <li>کد پیگیری ثبت‌نام اولیه</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست استعلام وام ازدواج</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#fb7185; --b:#e11d48;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <div class="tt">وام فرزندآوری<small>ثبت‌نام تسهیلات حمایت از فرزندآوری</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>شناسنامه فرزند (یا گواهی ولادت)</li>
+            <li>شناسنامه و کارت ملی والدین</li>
+            <li>کد پستی معتبر محل سکونت</li>
+            <li>مدارک هویتی و شغلی ضامن معتبر</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام وام فرزندآوری</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#fb923c; --b:#f43f5e;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div>
+          <div class="tt">استعلام وام فرزندآوری<small>پیگیری وضعیت ثبت‌نام قبلی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کد ملی متقاضی</li>
+            <li>کد پیگیری ثبت‌نام اولیه</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست استعلام وام فرزندآوری</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#f59e0b; --b:#f97316;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div>
+          <div class="tt">وام ودیعه مسکن<small>ثبت‌نام تسهیلات کمک‌ودیعه اجاره</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>قرارداد اجاره ثبت‌شده در سامانه اجاره‌بها</li>
+            <li>کد رهگیری قرارداد اجاره</li>
+            <li>شناسنامه و کارت ملی مستأجر</li>
+            <li>مدارک هویتی و شغلی ضامن معتبر</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام وام ودیعه مسکن</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- 02 : IDENTITY & SYSTEMS -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۲ / خدمات <span class="count">۹ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#38bdf8,#818cf8); -webkit-background-clip:text; background-clip:text; color:transparent;">اسناد و سامانه‌های رسمی</h2>
+        <small>کارت ملی، حساب بانکی و سامانه‌های دولتی</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#3b82f6,#818cf8);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M6 17c0-2 1.5-3 3-3s3 1 3 3M14 9h4M14 13h4"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#06b6d4; --b:#3b82f6;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M6 17c0-2 1.5-3 3-3s3 1 3 3M14 9h4M14 13h4"/></svg></div>
+          <div class="tt">ثبت‌نام کارت ملی<small>صدور یا تعویض کارت ملی هوشمند</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>شناسنامه</li>
+            <li>یک قطعه عکس پرسنلی جدید</li>
+            <li>کارت ملی قبلی، در صورت تعویض</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام کارت ملی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#10b981; --b:#84cc16;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div>
+          <div class="tt">افتتاح حساب بانکی<small>بانک مهر ایران و سایر بانک‌ها</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>اصل کارت ملی هوشمند</li>
+            <li>شناسنامه</li>
+            <li>شماره تلفن همراه به نام خودتان</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست افتتاح حساب</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#6366f1; --b:#38bdf8;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg></div>
+          <div class="tt">سامانه‌های رسمی<small>خودنویس، سخا، سجام و ثنا</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>کد پستی محل سکونت</li>
+            <li>شماره تلفن همراه فعال به نام خودتان</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام در سامانه</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#0ea5e9; --b:#6366f1;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6M9 12h.01M12 12h.01M15 12h.01"/></svg></div>
+          <div class="tt">ثبت‌نام املاک و اسکان<small>ثبت قرارداد اجاره و اطلاعات ملک</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی مالک و مستأجر</li>
+            <li>سند مالکیت یا اجاره‌نامه رسمی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام املاک و اسکان</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#a855f7; --b:#6366f1;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div class="tt">دریافت ابلاغیه قضایی<small>پیگیری و دریافت ابلاغیه‌های دادگاه</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>کد پیگیری یا شماره پرونده قضایی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست پیگیری ابلاغیه</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#0891b2; --b:#67e8f9;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg></div>
+          <div class="tt">ثبت‌نام سامانه ثنا<small>ثبت‌نام خدمات الکترونیک قضایی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>شماره تلفن همراه به نام خودتان</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام ثنا</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#65a30d; --b:#bef264;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10l8-6 8 6v10M9 20v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg></div>
+          <div class="tt">ثبت‌نام سامانه سجام<small>ثبت‌نام و احراز هویت بازار سرمایه</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی هوشمند</li>
+            <li>شماره تلفن همراه به نام خودتان</li>
+            <li>شماره شبای بانکی معتبر</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام سجام</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#475569; --b:#94a3b8;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <div class="tt">گواهی عدم سوء پیشینه<small>دریافت گواهی از خدمات الکترونیک قضایی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>ثبت‌نام قبلی در سامانه ثنا</li>
+            <li>یک قطعه عکس پرسنلی جدید</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست گواهی سوء پیشینه</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#0d9488; --b:#5eead4;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-5h4v5"/></svg></div>
+          <div class="tt">ثبت‌نام مسکن ملی<small>ثبت‌نام و پیگیری طرح نهضت ملی مسکن</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی و شناسنامه متقاضی و افراد تحت تکفل</li>
+            <li>گواهی سرپرست خانوار بودن، در صورت لزوم</li>
+            <li>گواهی سابقه سکونت ۵ ساله در شهر محل تقاضا</li>
+            <li>کد پستی محل سکونت فعلی</li>
+            <li>سند مالکیت، فقط برای دارندگان زمین</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام مسکن ملی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۳ / خدمات <span class="count">۹ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#4ade80,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent;">آموزش و دانشگاه</h2>
+        <small>ثبت‌نام، انتخاب واحد و کارت ورود جلسه</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#22c55e,#22d3ee);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#86efac" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#2563eb; --b:#0ea5e9;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/></svg></div>
+          <div class="tt">ثبت‌نام دانشگاه و کنکور<small>کنکور سراسری و فرهنگیان</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>مدرک دیپلم یا گواهی پیش‌دانشگاهی</li>
+            <li>یک قطعه عکس پرسنلی جدید</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#22c55e; --b:#10b981;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+          <div class="tt">انتخاب واحد پیام نور<small>ثبت‌نام و انتخاب واحد ترم</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی و شماره دانشجویی</li>
+            <li>کد رهگیری ثبت‌نام (برای ورودی‌های جدید)</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست انتخاب واحد پیام نور</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#8b5cf6; --b:#a855f7;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+          <div class="tt">انتخاب واحد دانشگاه آزاد<small>ثبت‌نام و انتخاب واحد ترم</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی و شماره دانشجویی</li>
+            <li>کد رهگیری ثبت‌نام (برای ورودی‌های جدید)</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست انتخاب واحد آزاد</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#eab308; --b:#f59e0b;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14h4"/></svg></div>
+          <div class="tt">کارت ورود جلسه کنکور<small>دریافت و چاپ کارت ورود به جلسه</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کد ملی داوطلب</li>
+            <li>کد رهگیری ثبت‌نام کنکور</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست کارت ورود کنکور</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#84cc16; --b:#22c55e;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <div class="tt">ثبت‌نام کتب درسی<small>خرید و رزرو کتاب‌های درسی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کد ملی دانش‌آموز</li>
+            <li>شماره دانش‌آموزی یا نام مدرسه/پایه تحصیلی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام کتب درسی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#f59e0b; --b:#dc2626;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="tt">ثبت‌نام مدارس شاهد (پایه هفتم)<small>ثبت‌نام و بارگذاری مدارک در سامانه مای مدیو</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>اصل و کپی شناسنامه و کارت ملی دانش‌آموز</li>
+            <li>شناسنامه و کارت ملی والدین</li>
+            <li>دو قطعه عکس پرسنلی جدید</li>
+            <li>کارنامه تحصیلی پایه ششم</li>
+            <li>مدارک ایثارگری (فرزند شاهد، جانباز یا آزاده)، در صورت وجود</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام مدارس شاهد</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#7c3aed; --b:#c4b5fd;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v6c0 2 4 4 9 4s9-2 9-4V8"/></svg></div>
+          <div class="tt">معافیت تحصیلی<small>درخواست معافیت تحصیلی دانشجویان و دانش‌آموزان</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>اصل و کپی کارت ملی و شناسنامه مشمول</li>
+            <li>گواهی اشتغال به تحصیل معتبر از مدرسه یا دانشگاه</li>
+            <li>چند قطعه عکس پرسنلی، برای دانش‌آموزان</li>
+            <li>پرینت قبولی کنکور، برای دانشجویان تازه‌ورود</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست معافیت تحصیلی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#0369a1; --b:#7dd3fc;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg></div>
+          <div class="tt">ثبت‌نام آزمون‌های استخدامی<small>ثبت‌نام در آزمون‌های استخدام دستگاه‌های دولتی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>آخرین مدرک تحصیلی</li>
+            <li>یک قطعه عکس پرسنلی جدید</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام آزمون استخدامی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#059669; --b:#6ee7b7;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/><path d="M8 9h8M8 13h4"/></svg></div>
+          <div class="tt">تاییدیه تحصیلی<small>دریافت تاییدیه تحصیلی از مدرسه یا دانشگاه</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کد ملی دانش‌آموز یا دانشجو</li>
+            <li>مشخصات مدرسه یا دانشگاه و سال فارغ‌التحصیلی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست تاییدیه تحصیلی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- 04 : VEHICLE -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۴ / خدمات <span class="count">۵ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#fb923c,#ef4444); -webkit-background-clip:text; background-clip:text; color:transparent;">خودرو و حمل‌ونقل</h2>
+        <small>پلاک، خلافی، کارت سوخت و لاستیک</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#f97316,#ef4444);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#fdba74" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 0 1-2-2v-2l2-5h14l2 5v2a2 2 0 0 1-2 2M7 17v2M17 17v2"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#f97316; --b:#ef4444;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 0 1-2-2v-2l2-5h14l2 5v2a2 2 0 0 1-2 2M7 17v2M17 17v2"/></svg></div>
+          <div class="tt">تعویض پلاک خودرو<small>نقل‌وانتقال و صدور پلاک جدید</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی و شناسنامه خریدار و فروشنده</li>
+            <li>سند / برگ سبز خودرو</li>
+            <li>بیمه‌نامه شخص ثالث معتبر</li>
+            <li>کارت معاینه فنی معتبر (خودروهای بالای ۴ سال)</li>
+            <li>وکالت‌نامه رسمی، در صورت غیبت یکی از طرفین</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست تعویض پلاک</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#3b82f6; --b:#6366f1;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-6h14l2 6M5 13h14v5H5z"/><circle cx="7.5" cy="18" r="1.4"/><circle cx="16.5" cy="18" r="1.4"/></svg></div>
+          <div class="tt">ثبت‌نام خودرو<small>پیش‌فروش و ثبت‌نام طرح‌های فروش</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>شماره تلفن همراه به نام خودتان</li>
+            <li>کارت بانکی برای واریز اولیه</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام خودرو</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#ef4444; --b:#f43f5e;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/><path d="M12 9v4M12 16h.01"/></svg></div>
+          <div class="tt">استعلام خلافی خودرو<small>استعلام و پرداخت جریمه‌های رانندگی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی مالک خودرو</li>
+            <li>شماره پلاک خودرو</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست استعلام خلافی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#facc15; --b:#f59e0b;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l6-4h4l6 4v13"/><path d="M4 12h8m-3 0v9M15 9h2v3h-2z"/></svg></div>
+          <div class="tt">درخواست کارت سوخت<small>صدور یا فعال‌سازی کارت سوخت</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی مالک خودرو</li>
+            <li>سند یا کارت مشخصات خودرو</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست کارت سوخت</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#64748b; --b:#334155;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg></div>
+          <div class="tt">خرید لاستیک دولتی<small>ثبت‌نام طرح تأمین لاستیک</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی مالک خودرو</li>
+            <li>کارت / سند خودرو</li>
+            <li>شماره تلفن همراه فعال</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست لاستیک دولتی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- 05 : UTILITIES -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۵ / خدمات <span class="count">۴ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#38bdf8,#facc15); -webkit-background-clip:text; background-clip:text; color:transparent;">آب، برق و گاز</h2>
+        <small>انشعاب جدید، اصلاح و پرداخت قبوض</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#38bdf8,#facc15);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#7dd3fc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5s6 6.2 6 10.8a6 6 0 1 1-12 0c0-4.6 6-10.8 6-10.8z"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#3b82f6; --b:#22d3ee;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5s6 6.2 6 10.8a6 6 0 1 1-12 0c0-4.6 6-10.8 6-10.8z"/></svg></div>
+          <div class="tt">انشعاب و قبض آب<small>انشعاب جدید، اصلاح و پرداخت قبض</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم (انشعاب جدید)</div>
+          <ul class="docs">
+            <li>کارت ملی و شناسنامه مالک</li>
+            <li>سند مالکیت یا اجاره‌نامه رسمی</li>
+            <li>پایان‌کار یا جواز ساخت، برای ملک تازه‌ساز</li>
+          </ul>
+          <div class="label" style="margin-top:2px;">برای پرداخت یا اصلاح قبض</div>
+          <ul class="docs"><li>شماره اشتراک یا شناسه قبض</li></ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست خدمت آب</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#eab308; --b:#84cc16;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+          <div class="tt">انشعاب و قبض برق<small>انشعاب جدید، اصلاح و پرداخت قبض</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم (انشعاب جدید)</div>
+          <ul class="docs">
+            <li>کارت ملی و شناسنامه مالک</li>
+            <li>سند مالکیت یا اجاره‌نامه رسمی</li>
+            <li>پایان‌کار یا جواز ساخت، برای ملک تازه‌ساز</li>
+          </ul>
+          <div class="label" style="margin-top:2px;">برای پرداخت یا اصلاح قبض</div>
+          <ul class="docs"><li>شماره اشتراک یا شناسه قبض</li></ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست خدمت برق</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#14b8a6; --b:#6366f1;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c3.3 0 6-2.5 6-6 0-3-2-5-3-8-1 2-2 2.5-3 1.5C10.5 7 11 4 9 2c0 3-4 6-4 11 0 3.5 3.5 9 7 9z"/></svg></div>
+          <div class="tt">انشعاب و قبض گاز<small>انشعاب جدید، اصلاح و پرداخت قبض</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم (انشعاب جدید)</div>
+          <ul class="docs">
+            <li>کارت ملی و شناسنامه مالک</li>
+            <li>سند مالکیت یا اجاره‌نامه رسمی</li>
+            <li>پایان‌کار یا جواز ساخت، برای ملک تازه‌ساز</li>
+            <li>تاییدیه نظام مهندسی برای لوله‌کشی داخلی</li>
+          </ul>
+          <div class="label" style="margin-top:2px;">برای پرداخت یا اصلاح قبض</div>
+          <ul class="docs"><li>شماره اشتراک یا شناسه قبض</li></ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست خدمت گاز</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#9333ea; --b:#f0abfc;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 15h4"/></svg></div>
+          <div class="tt">پرداخت قبوض<small>پرداخت قبض برق، آب، گاز و تلفن</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>شماره اشتراک یا شناسه قبض هر کدام</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست پرداخت قبض</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- 06 : FINANCE & PERMITS -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۶ / خدمات <span class="count">۸ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#2dd4bf,#a3e635); -webkit-background-clip:text; background-clip:text; color:transparent;">مالی، مالیات و مجوز</h2>
+        <small>کارتخوان، عوارض، مجوز کسب و نوبت‌دهی</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#14b8a6,#a3e635);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#14b8a6; --b:#10b981;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <div class="tt">کد مالیاتی کارتخوان<small>درخواست کد اقتصادی برای دستگاه پوز</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>پرونده یا کد اقتصادی مالیاتی (در صورت وجود)</li>
+            <li>مجوز کسب، در صورت داشتن واحد صنفی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست کد مالیاتی کارتخوان</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#e879f9; --b:#c026d3;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+          <div class="tt">پرداخت عوارض و مالیات<small>پرداخت و پیگیری بدهی‌های مالیاتی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کد ملی یا شناسه پرونده مالیاتی</li>
+            <li>برگه تشخیص یا اعلامیه بدهی، در صورت وجود</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست پرداخت عوارض و مالیات</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#a855f7; --b:#8b5cf6;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="tt">ثبت‌نام مجوز کسب<small>صدور یا تمدید مجوز واحد صنفی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی و شناسنامه</li>
+            <li>سند مالکیت یا اجاره‌نامه محل کسب</li>
+            <li>مدارک عضویت اتحادیه صنفی مربوطه</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت‌نام مجوز کسب</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#fbbf24; --b:#f97316;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v4"/></svg></div>
+          <div class="tt">نوبت‌دهی گذرنامه اربعین<small>نوبت زیارتی اربعین حسینی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>گذرنامه معتبر</li>
+            <li>کارت ملی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست نوبت گذرنامه اربعین</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#16a34a; --b:#bbf7d0;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H7"/></svg></div>
+          <div class="tt">پیگیری سهام عدالت<small>پیگیری وضعیت و سود سهام عدالت</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی هوشمند</li>
+            <li>شماره تلفن همراه به نام خودتان</li>
+            <li>شماره شبای بانکی معتبر</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست پیگیری سهام عدالت</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#7e22ce; --b:#e9d5ff;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14h3"/></svg></div>
+          <div class="tt">ثبت چک صیادی<small>ثبت، تایید، انتقال و استعلام چک</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی صادرکننده و گیرنده چک</li>
+            <li>کد ۱۶ رقمی صیادی روی چک</li>
+            <li>مبلغ و تاریخ دقیق چک</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست ثبت چک صیادی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#be123c; --b:#fda4af;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <div class="tt">اعتراض به قطع یارانه<small>اعتراض به دهک‌بندی خانوار</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کد ملی سرپرست خانوار</li>
+            <li>کد رهگیری ثبت‌نام یارانه</li>
+            <li>مدارک اثبات‌کننده وضعیت معیشتی، در صورت نیاز</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست اعتراض به دهک‌بندی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#0e7490; --b:#a5f3fc;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="2"/><circle cx="12" cy="13" r="2.5"/></svg></div>
+          <div class="tt">درگاه پرداخت اینترنتی<small>ثبت‌نام درگاه پرداخت اینترنتی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">مدارک لازم</div>
+          <ul class="docs">
+            <li>کارت ملی</li>
+            <li>کد اقتصادی یا مجوز کسب، در صورت وجود</li>
+            <li>شماره حساب یا شبا به نام متقاضی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست درگاه پرداخت</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- 07 : OFFICE -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۷ / خدمات <span class="count">۵ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#f472b6,#fb923c); -webkit-background-clip:text; background-clip:text; color:transparent;">خدمات آفیس</h2>
+        <small>تایپ، طراحی و محاسبات حرفه‌ای</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#ec4899,#fb923c);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#f9a8d4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/><path d="M18 2l4 4-10 10H8v-4z"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#ec4899; --b:#f43f5e;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2M9 20h6M12 4v16"/></svg></div>
+          <div class="tt">تایپ و صفحه‌آرایی<small>پایان‌نامه و کتاب</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>متن دست‌نویس یا فایل اولیه (عکس، ورد یا پی‌دی‌اف)</li>
+            <li>فرمت و قالب موردنظر برای صفحه‌آرایی</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست تایپ و صفحه‌آرایی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#d946ef; --b:#a855f7;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <div class="tt">طراحی فرم سوالات<small>فرم امتحانی در Word</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>متن سوالات (دست‌نویس یا فایل)</li>
+            <li>سربرگ یا قالب موردنظر مدرسه/دانشگاه، در صورت وجود</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست طراحی فرم</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#f97316; --b:#f59e0b;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10M9 8l3 3 5-5"/></svg></div>
+          <div class="tt">پرزنتیشن<small>اسلایدهای حرفه‌ای در PowerPoint</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>محتوای موردنظر برای اسلایدها</li>
+            <li>تصاویر یا لوگوی مرتبط، در صورت وجود</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست پرزنتیشن</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#34d399; --b:#059669;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h3M8 16h5"/></svg></div>
+          <div class="tt">محاسباتی<small>فرمول‌نویسی و طراحی فاکتور در Excel</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>داده‌ها یا نمونه فاکتور موردنظر</li>
+            <li>توضیح فرمول یا محاسبه‌ای که نیاز دارید</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست کار محاسباتی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#4338ca; --b:#a5b4fc;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/><path d="M8 9h8M8 13h6M8 17h4"/></svg></div>
+          <div class="tt">تحقیق دانشجویی<small>تحقیق دانش‌آموزی و دانشجویی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>موضوع و منابع موردنظر</li>
+            <li>تعداد صفحات و فرمت خواسته‌شده</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست تحقیق دانشجویی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- 08 : SOFTWARE -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="num mono">۰۸ / خدمات <span class="count">۵ خدمت</span></div>
+        <h2 class="display" style="background:linear-gradient(90deg,#60a5fa,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent;">خدمات نرم‌افزاری</h2>
+        <small>نصب، امنیت و بازیابی اطلاعات</small>
+      </div>
+      <div class="glyph" style="background:linear-gradient(135deg,#3b82f6,#22d3ee);"><div class="glyph-in"><svg viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div></div>
+    </div>
+    <div class="stack">
+
+      <details class="item" style="--a:#4f46e5; --b:#818cf8;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="tt">نصب ویندوز ۱۰ و ۱۱<small>همراه با اکتیو اصلی</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>خود سیستم یا لپ‌تاپ</li>
+            <li>شارژر دستگاه</li>
+            <li>پشتیبان‌گیری از فایل‌های مهم، توصیه می‌شود</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست نصب ویندوز</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#f59e0b; --b:#fb923c;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></div>
+          <div class="tt">نصب مایکروسافت آفیس<small>مجموعه کامل Word، Excel، PowerPoint</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs"><li>خود سیستم یا لپ‌تاپ</li></ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست نصب آفیس</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#fb7185; --b:#be123c;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0M12 15v2"/></svg></div>
+          <div class="tt">حذف FRP (قفل گوگل)<small>حذف جیمیل FRP گوشی‌های ریست فکتوری‌شده</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>خود گوشی ریست‌فکتوری‌شده</li>
+            <li>اثبات مالکیت دستگاه (فاکتور خرید یا شماره سریال/IMEI)</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست حذف FRP</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#14b8a6; --b:#22d3ee;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+          <div class="tt">بازیابی اطلاعات<small>ریکاوری داده‌های پاک‌شده</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>خود گوشی یا حافظه موردنظر</li>
+            <li>اثبات مالکیت دستگاه، در صورت درخواست</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست بازیابی اطلاعات</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+      <details class="item" style="--a:#8b5cf6; --b:#d946ef;">
+        <summary>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 6h4"/><circle cx="12" cy="15" r="2"/><path d="M12 17v2"/></svg></div>
+          <div class="tt">باز کردن قفل گوشی<small>حذف الگو، پین یا رمز صفحه بدون حذف اطلاعات</small></div>
+          <div class="chev"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        </summary>
+        <div class="item-body">
+          <div class="label">چیزی که باید همراه داشته باشید</div>
+          <ul class="docs">
+            <li>خود گوشی</li>
+            <li>توضیح نوع قفل (الگو، پین یا رمز)</li>
+            <li>اثبات مالکیت دستگاه، در صورت درخواست</li>
+          </ul>
+          <button type="button" class="req-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>درخواست باز کردن قفل گوشی</button>
+          <div class="req-hint">مدارک رو از همینجا آپلود کن</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg><span>سرعت بالا</span></div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-9-9"/></svg><span>دقت تضمینی</span></div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8 16a5.5 5.5 0 0 1 8 0M12 19.5h.01"/></svg><span>غیرحضوری</span></div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>پاسخ سریع</span></div>
+  </div>
+
+  <div class="address-block">
+    <div class="pin"><div class="pin-in"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div></div>
+    <div class="kicker">موقعیت ما</div>
+    <h3>بیا حضوری هم بهمون سر بزن</h3>
+    <p><b>آدرس:</b> شهرستان نقده، منطقه کهل، خیابان محسن شادی</p>
+    <p><b>تماس:</b> ۰۹۳۷۳۹۹۸۵۶۲</p>
+    <p>جهت ثبت‌نام غیرحضوری، از دکمه‌های پایین صفحه تماس بگیرید یا پیام بدید.</p>
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=%D9%86%D9%82%D8%AF%D9%87%20%D9%85%D9%86%D8%B7%D9%82%D9%87%20%DA%A9%D9%87%D9%84%20%D8%AE%DB%8C%D8%A7%D8%A8%D8%A7%D9%86%20%D9%85%D8%AD%D8%B3%D9%86%20%D8%B4%D8%A7%D8%AF%DB%8C" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      نمایش مسیر روی نقشه
+    </a>
+  </div>
+
+  <footer>
+    <div class="brand">کافی‌نت آنلاین سولدوز</div>
+    <div style="margin-top:6px;">دنیایِ خدمات، در کمترین زمان</div>
+    <div class="channel">KafinetAnlain2026@</div>
+  </footer>
+
+</div>
+
+<div class="cta-bar">
+  <a class="cta call" href="tel:09373998562">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg>
+    تماس تلفنی
+  </a>
+  <a class="cta msg" href="https://rubika.ir/Mohammad2025127" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    پیام در روبیکا
+  </a>
+</div>
+
+<!-- ---------- REQUEST MODAL ---------- -->
+<div class="modal-overlay" id="reqModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="mServiceName">درخواست خدمت</h3>
+      <div class="modal-close" onclick="closeModal()">✕</div>
+    </div>
+    <div class="modal-sub">مدارک لازم رو عکس بگیر و آپلود کن، بعد فیش واریزی رو هم اضافه کن.</div>
+
+    <div class="card-box">
+      <div class="cb-note">⚠️ قبل از واریز، برای اطلاع از هزینه‌ی این خدمت، ابتدا به آیدی مدیر کانال پیام بده و هزینه رو بپرس، بعد واریز کن.</div>
+      <a class="cb-admin-link" href="https://rubika.ir/Mohammad2025127" target="_blank" rel="noopener">پیام به مدیر برای اطلاع از هزینه ↗</a>
+      <div class="cb-divider"></div>
+      <div class="cb-label">واریز کارت‌به‌کارت</div>
+      <div class="cb-num" id="cardNum">6063-7312-6286-0100</div>
+      <div class="cb-name">به نام محمد رزیانی</div>
+      <div class="cb-copy" onclick="copyCard()">کپی شماره کارت</div>
+    </div>
+
+    <form id="reqForm">
+      <div class="m-field">
+        <label>نام و نام خانوادگی</label>
+        <input type="text" id="custName" required placeholder="مثال: علی احمدی">
+      </div>
+      <div class="m-field">
+        <label>شماره تماس</label>
+        <input type="tel" id="custPhone" required placeholder="09xxxxxxxxx">
+      </div>
+      <div id="docFieldsWrap"></div>
+      <div class="m-field">
+        <label>عکس فیش واریزی</label>
+        <label class="m-upload">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span id="receiptLabel">انتخاب عکس فیش</span>
+          <input type="file" id="receiptFile" accept="image/*">
+        </label>
+        <div class="m-file-list" id="receiptFileList"></div>
+      </div>
+      <button type="submit" class="m-submit" id="submitBtn">ثبت درخواست</button>
+      <div class="m-status" id="mStatus"></div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPA_URL = 'https://uehrnpbqbpxiyyaellkj.supabase.co';
+  const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlaHJucGJxYnB4aXl5YWVsbGtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MTIwNzUsImV4cCI6MjEwMTA4ODA3NX0.xb2sAFvHqXi5bGmcYjcK6Q9JfJ6IIEInzDfzrxoFhng';
+  const supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+
+  const modal = document.getElementById('reqModal');
+  const mServiceName = document.getElementById('mServiceName');
+  const reqForm = document.getElementById('reqForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const mStatus = document.getElementById('mStatus');
+  const docFieldsWrap = document.getElementById('docFieldsWrap');
+  let currentService = '';
+  let currentDocTypes = [];
+
+  const uploadSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>';
+
+  function buildDocFields(docTypes){
+    docFieldsWrap.innerHTML = '';
+    const types = docTypes.length ? docTypes : ['مدارک لازم'];
+    types.forEach(function(label, i){
+      const field = document.createElement('div');
+      field.className = 'm-field';
+      field.innerHTML = `
+        <label>عکس: ${label}</label>
+        <label class="m-upload">
+          ${uploadSvg}
+          <span>انتخاب عکس</span>
+          <input type="file" accept="image/*" data-doc-label="${label}">
+        </label>
+        <div class="m-file-list"></div>`;
+      const input = field.querySelector('input[type=file]');
+      const listEl = field.querySelector('.m-file-list');
+      input.addEventListener('change', function(){
+        listEl.textContent = this.files.length ? this.files[0].name : '';
+      });
+      docFieldsWrap.appendChild(field);
+    });
+  }
+
+  function openModal(serviceName, docTypes){
+    currentService = serviceName;
+    currentDocTypes = docTypes || [];
+    mServiceName.textContent = serviceName;
+    mStatus.textContent = '';
+    mStatus.className = 'm-status';
+    reqForm.reset();
+    buildDocFields(currentDocTypes);
+    document.getElementById('receiptFileList').textContent = '';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'ثبت درخواست';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+
+  function copyCard(){
+    navigator.clipboard.writeText('6063731262860100').then(()=>{
+      const el = document.querySelector('.cb-copy');
+      const old = el.textContent;
+      el.textContent = 'کپی شد ✓';
+      setTimeout(()=>{ el.textContent = old; }, 1600);
+    });
+  }
+
+  document.getElementById('receiptFile').addEventListener('change', function(){
+    document.getElementById('receiptFileList').textContent = this.files.length ? this.files[0].name : '';
+  });
+
+  // Intercept all "درخواست" buttons across the page to open the modal instead of navigating away
+  document.querySelectorAll('.req-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const label = this.textContent.trim();
+      const item = this.closest('.item-body') || this.closest('details.item');
+      let docTypes = [];
+      if(item){
+        docTypes = Array.from(item.querySelectorAll('ul.docs li')).map(li => li.textContent.trim());
+      }
+      openModal(label, docTypes);
+    });
+  });
+
+  async function uploadFile(file, prefix){
+    const ext = file.name.split('.').pop() || 'jpg';
+    const path = `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2,8)}.${ext}`;
+    const { error } = await supa.storage.from('documents').upload(path, file);
+    if(error) throw error;
+    const { data } = supa.storage.from('documents').getPublicUrl(path);
+    return data.publicUrl;
+  }
+
+  reqForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'در حال ارسال...';
+    mStatus.textContent = '';
+    mStatus.className = 'm-status';
+    try{
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const receiptFiles = document.getElementById('receiptFile').files;
+
+      const docInputs = Array.from(docFieldsWrap.querySelectorAll('input[type=file]'));
+      const docUrls = [];
+      for(const input of docInputs){
+        if(input.files.length){
+          const url = await uploadFile(input.files[0], 'doc');
+          docUrls.push(`${input.dataset.docLabel}: ${url}`);
+        }
+      }
+      let receiptUrl = null;
+      if(receiptFiles.length){
+        receiptUrl = await uploadFile(receiptFiles[0], 'receipt');
+      }
+
+      const { error } = await supa.from('requests').insert({
+        service_name: currentService,
+        customer_name: name,
+        customer_phone: phone,
+        document_urls: docUrls,
+        receipt_url: receiptUrl
+      });
+      if(error) throw error;
+
+      mStatus.textContent = 'درخواست شما با موفقیت ثبت شد ✓ به‌زودی باهات تماس گرفته می‌شه.';
+      mStatus.className = 'm-status ok';
+      submitBtn.textContent = 'ثبت شد ✓';
+      setTimeout(closeModal, 2200);
+    }catch(err){
+      console.error(err);
+      mStatus.textContent = 'مشکلی پیش اومد، لطفاً دوباره امتحان کن یا از طریق روبیکا پیام بده.';
+      mStatus.className = 'm-status err';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'ثبت درخواست';
+    }
+  });
+</script>
+
+</body>
+</html>
